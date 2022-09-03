@@ -3,19 +3,37 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-    if (n === 1 || n === 0) return 1 ;
-    let first = 1;
-    let second = 2;
+  if(n === 1){
+    return 1
+  }
+  else if(n ===2){
+    return 2
+  }
+let waystoClimb;
+  let waystoClimb1=1;
+  let waystoClimb2=2;
+let i=1;
+  while(n-1 > i){
+    
+    waystoClimb=waystoClimb2+waystoClimb1; 
+    waystoClimb1=waystoClimb2;//2
+    console.log('waystoClimb1',waystoClimb1);//2
+    waystoClimb2=waystoClimb;
+    console.log('waystoClimb2',waystoClimb2);//3
+     console.log('waystoClimb',waystoClimb);//3
+    i++;
+  }
+  
 
-    for (let i = 3; i <= n; i++) {
-        let third = first + second;
-        first = second;
-        second = third;
-      
-    }
-    return second;
+return waystoClimb;
+
+
+  
 };
-// if (n <= 1) return 1;
-// return climbStairs(n - 1) + climbStairs(n - 2);
+/*
+ n 1 2 3 4
 
-console.log(climbStairs(3));
+waystoClimb 1 2 3 5
+*/
+
+console.log(climbStairs(4));
