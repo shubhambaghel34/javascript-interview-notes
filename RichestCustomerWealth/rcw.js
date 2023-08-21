@@ -1,17 +1,15 @@
 
 
 var maximumWealth = function(accounts) {
-  let maxWealth = 0;
+let maxwealth=0;
 
-  for (let i = 0; i < accounts.length; i++) {
-    let currentWealth = 0;
-    for (let j = 0; j < accounts[i].length; j++) {
-      currentWealth += accounts[i][j];
-    }
-    if (currentWealth > maxWealth) {
-      maxWealth = currentWealth
+  for(i=0;i<accounts.length;i++){
+    for(j=0;i<accounts[i].length;i++){
+      console.log(accounts[i][j])
     }
   }
-  return maxWealth;
+
+  
+  
 };
 console.log(maximumWealth([[1, 2, 3], [3, 2, 1]]));
