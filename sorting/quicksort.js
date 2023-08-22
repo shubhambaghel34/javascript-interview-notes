@@ -2,7 +2,9 @@ const quickSort = (arr) => {
   if (arr.length < 2) {
     return arr;
   }
+  //will pivot last element
   let pivot = arr[arr.length - 1];
+  //8 -1 =2
   console.log("pivot", pivot);
   let left = [];
   let right = [];
