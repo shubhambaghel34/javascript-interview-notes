@@ -8,7 +8,7 @@ function mergeSort(arr) {
   return merge(mergeSort(left), mergeSort(right));
 }
 
-//function to merge
+//function to merge////
 function merge(leftarr, rigtarr) {
   const sortArr = [];
   while (leftarr.length && rigtarr.length) {
