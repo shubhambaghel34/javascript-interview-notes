@@ -21,4 +21,4 @@ function merge(leftarr, rigtarr) {
   return [...sortArr, ...leftarr, ...rigtarr];
 }
 //call function for mergesort
-console.log(mergeSort([1, 10, 2, -6, 8, 3, 22]));
+console.log(mergeSort([1, 10, 2, -2, 8, 3, 22]));
