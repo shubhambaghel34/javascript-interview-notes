@@ -2,7 +2,7 @@ const demoArr=[2,3,1,5,6,11,10]
 
 
 //**
- //PolyFill for myMap metod
+ //PolyFill for myMap method
 //
 
 Array.prototype.myMap=function (cb) {
@@ -19,7 +19,7 @@ demoArr.myMap((arr)=>console.log(arr));
 
 
 //**
- //PolyFill for myFilter metod
+ //PolyFill for myFilter method
 //
 Array.prototype.MyFilter=function(cb,context){
     const updatedArray=[];
@@ -38,7 +38,7 @@ demoArr.MyFilter((ele)=> ele > 4);
 
 
 //**
- //PolyFill for reduce metod
+ //PolyFill for reduce method
 //
 Array.prototype.MyReduce = function (cb, initialvalue) {
     let acc = initialvalue;
@@ -78,7 +78,7 @@ PrintName.sayHi.MyCall(nameObj, 42);
 
 
 //**
- //PolyFill for apply metod
+ //PolyFill for apply method
 //
 Object.prototype.MyApply = function (bindObj, args) {
     bindObj.myMethod = this;
@@ -89,7 +89,7 @@ Object.prototype.MyApply = function (bindObj, args) {
 PrintName.sayHi.MyApply(nameObj, [42]);
 
 //**
- //PolyFill for bind metod
+ //PolyFill for bind method
 //
 Object.prototype.MyBind = function (bindObj) {
 
