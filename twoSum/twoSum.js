@@ -16,8 +16,8 @@ var twoSum = function(nums, target) {
   }
 
 };
-console.log(twoSum([2, 7, 11, 15],
-  9));
+// console.log(twoSum([2, 7, 11, 15],
+//   9));
 
 
 
@@ -39,3 +39,53 @@ console.log(twoSum([2, 7, 11, 15],
 //
 
 
+
+
+function getSum(arr, targetSum){
+  for(let i =0;i<arr.length;i++){
+    for(let j=0;j<arr.length;j++){
+      if(arr[i]+ arr[j] === targetSum){
+        return [i,j]
+      }
+    }
+  }
+  return false;
+}
+console.log(getSum([2, 7, 11, 15],
+  9));
+
+
+
+
+
+
+
+
+function findPairWithEqualSum(arr) {
+
+  const totalSum = arr.reduce((acc, num) => acc + num, 0);
+  
+  // If the total sum is odd, it's not possible to divide it into two equal parts
+  if (totalSum % 2 !== 0) {
+      return null;  
+  }
+
+  // Calculate the target sum for the pair
+  const targetSum = (totalSum / 2);
+
+  // Loop through all pairs of elements to check if their sum equals targetSum
+  for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+      
+          if (arr[i] + arr[j] === targetSum) {
+              return [arr[i], arr[j]]; 
+          }
+      }
+  }
+
+  return null;  
+}
+
+
+const arr2 = [1, 2, 3, 4];
+console.log(findPairWithEqualSum(arr2)); 
