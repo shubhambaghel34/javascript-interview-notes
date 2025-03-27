@@ -33,10 +33,12 @@ const tree = {
 
 function depthFirstTraversal(tree) {
     let values = [tree.value];
+
     if (tree.children) {
         for (const child of tree.children) {
             values = values.concat(depthFirstTraversal(child))
         }
     }
+    
     return values;
 }
