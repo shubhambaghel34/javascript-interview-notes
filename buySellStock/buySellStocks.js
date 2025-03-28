@@ -22,7 +22,7 @@ var maxProfitfromStocks = function(prices) {
     return maxProfit;
 };
 
-console.log(maxProfitfromStocks(prices));
+//console.log(maxProfitfromStocks(prices));
 
 /**
  * 
@@ -43,4 +43,4 @@ for(let i=0;i<prices.length;i++){
 return profit;
 }
 
-console.log(maxProfit(prices));
+//console.log(maxProfit(prices));
