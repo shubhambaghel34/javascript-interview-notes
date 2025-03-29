@@ -8,12 +8,12 @@ function secondLargest(nums){
             secondLargest=first;
             first=nums[i];
         }else if (nums[i] < first && nums[i] >secondLargest){
-            secondLargest = nums[i];  // Update second if nums[i] is between first and second
+           secondLargest = nums[i];  // Update second if nums[i] is between first and second
         }
     }
     return secondLargest;
 }
 
-console.log(secondLargest(prices));
+//console.log(secondLargest(prices));
 
-
+const prices=[1,2,4,5];
