@@ -1,4 +1,5 @@
-const flatten = function(arr, result = []) {
+const flatten = function(arr) {
+  let result=[];
   let length = arr.length;
   for (let i = 0; i < length; i++) {
     const value = arr[i];

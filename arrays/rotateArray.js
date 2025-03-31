@@ -54,7 +54,7 @@ function moveZeroRight(arr) {
       temp.push(arr[i]);
     }
   }
-  //push all the temp vlaues in actual arrray
+  //push all the temp values in actual arrray
   for (let i = 0; i < temp.length; i++) {
     arr[i] = temp[i];
   }
@@ -88,4 +88,36 @@ function moveZeroRight(arr) {
   return arr;
 }
 
+
+const moveZeroRight = (nums) => {
+  let right = 0; // Points to the next available position for a non-zero element
+
+  // Loop through the array with the `left` pointer
+  for (let left = 0; left < nums.length; left++) {
+    if (nums[left] !== 0) { // If the current element is non-zero
+      nums[right] = nums[left]; // Place the non-zero element at `right`
+      if (left !== right) { // Don't set 0 if it's the same index
+        nums[left] = 0; // Set the original position to 0
+      }
+      right++; // Move `right` to the next position
+    }
+  }
+
+  return nums; // Return the updated array
+};
+
 console.log(moveZeroRight(smaplArra));
+
+var removeElement = function(nums, val) {
+  let right = 0;
+  
+  for (let left = 0; left < nums.length; left++) {
+      if (nums[left] !== val) {
+          nums[right] = nums[left];
+          right++;
+      }
+  }
+  
+  return right;
+};
+console.log(removeElement([3, 2, 2, 3], 3)); // Output: 2
