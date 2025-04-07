@@ -1,1 +1,54 @@
-node_modules
+/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build directories
+/dist/
+/build/
+
+# Dependency directories
+/.pnp/
+/.pnp.js
+
+# TypeScript
+/tsconfig.tsbuildinfo
+
+# IDE/editor specific files
+/.idea/
+/.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# npm package lock files (optional if using yarn)
+# package-lock.json (use if you are using npm)
+# yarn.lock (use if you are using yarn)
+
+# Production and staging environments
+/.env.production
+/.env.staging
+
+# Test directories
+/coverage
+
+# Documentation files
+/doc/
+
+# Log files and temp files
+*.log
+*.tmp
+
+# Build files
+*.out
+*.swp
