@@ -44,6 +44,8 @@ Array.prototype.MyReduce = function (cb, initialvalue) {
     }
     return acc;
 }
+
+
 const t = demoArr.MyReduce((acc, curr) => {
     return acc + curr
 }, 0)

@@ -1,5 +1,5 @@
-const flatten = function(arr) {
-  let result=[];
+//flatten any array
+const flatten = function (arr, result = []) {
   let length = arr.length;
   for (let i = 0; i < length; i++) {
     const value = arr[i];
@@ -11,6 +11,5 @@ const flatten = function(arr) {
   }
   return result;
 };
-//flatten any array
 
 console.log(flatten([[[1, [1.1]], 2, 3], [4, 5]]))

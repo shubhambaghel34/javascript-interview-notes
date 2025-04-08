@@ -49,8 +49,6 @@ function consecutiveOnes(arr) {
 console.log(consecutiveOnes([1, 1, 0, 1, 1, 1, 0, 1, 1]));
 
 
-
-
 function numberAppearOnce(arr){
 let xor=0;
 for(let i=0;i<arr.length;i++){
