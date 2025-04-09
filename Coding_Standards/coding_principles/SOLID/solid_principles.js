@@ -1,4 +1,3 @@
-//A customer places an order → different payment methods (Card, PayPal) are supported → the system logs the event and sends a confirmation.
 
 //S-Singles responsibility principle
 class OrderService {
