@@ -12,6 +12,6 @@ function isPalindrome(s) {
     return true;
   }
   
-  // Driver code
+  
   const s = "madam";
   console.log(isPalindrome(s)); 

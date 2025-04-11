@@ -7,7 +7,7 @@ function misssingNumber(nums){
     return sum;
 
 }
-
+//optimized way
 function misssingNumberXOR(arr){
     let n = Math.max(...arr); // get the max number
     let xor1 = 0, xor2 = 0;
@@ -26,7 +26,6 @@ function misssingNumberXOR(arr){
     return xor1 ^ xor2;
 
 }
-
 console.log(misssingNumber([1,2,4,5]));
 
 

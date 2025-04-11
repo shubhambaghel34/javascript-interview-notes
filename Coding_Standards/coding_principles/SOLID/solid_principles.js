@@ -1,4 +1,3 @@
-//A customer places an order → different payment methods (Card, PayPal) are supported → the system logs the event and sends a confirmation.
 
 //S-Singles responsibility principle
 class OrderService {
@@ -10,10 +9,6 @@ class OrderService {
 }
 
 /************************************************************************************************************/
-
-
-
-
 /****
  * 
  * Open closed principle
@@ -35,18 +30,6 @@ class PaymentStrategy {
     }
 }
 
-class CardPayment extends PaymentStrategy {
-    pay(amount) {
-        console.log(`Paid amount${amount} via Card`)
-    }
-}
-
-class PaypalPayment extends Payment {
-    pay(amount) {
-        console.log(`Paid amount${amount} via PayPal`)
-    }
-}
-
 //Implemented in class
 class PaymentService {
     constructor(paymentMethod) {
@@ -58,6 +41,19 @@ class PaymentService {
     }
 
 }
+
+class CardPayment extends PaymentStrategy {
+    pay(amount) {
+        console.log(`Paid amount${amount} via Card`)
+    }
+}
+
+class PaypalPayment extends PaymentStrategy {
+    pay(amount) {
+        console.log(`Paid amount${amount} via PayPal`)
+    }
+}
+
 
 /***Usage***/
 const cardPayment = new CardPayment();
@@ -191,7 +187,7 @@ const shirt = new PhysicalProduct();
 shirt.ship(); // Shipping physical product
 
 
-
+/******************************************************************************************* */
 
 
 

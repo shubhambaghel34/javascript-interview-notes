@@ -1,7 +1,7 @@
 const demoArr = [2, 3, 1, 5, 6, 11, 10]
 //**
 //PolyFill for myMap method
-//
+
 
 Array.prototype.myMap = function (cb) {
     const updatedArray = [];
@@ -44,6 +44,8 @@ Array.prototype.MyReduce = function (cb, initialvalue) {
     }
     return acc;
 }
+
+
 const t = demoArr.MyReduce((acc, curr) => {
     return acc + curr
 }, 0)
