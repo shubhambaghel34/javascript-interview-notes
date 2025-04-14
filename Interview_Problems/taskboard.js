@@ -2,10 +2,11 @@
 // Write, Edit and Run your Javascript code using JS Online Compiler
 
 let tasks=[];
+
 function addTask(title,priority="low"){
     const task={
         id:tasks.length + 1,
-        priority:priority.toLocaleLowerCase(),
+        priority:priority.toLowerCase(),
         title,
         completed:false,
         createdAt:null
@@ -15,7 +16,7 @@ function addTask(title,priority="low"){
 }
 
 function filterByPriority(priority){
-  return  tasks.find(t => t.priority === priority.toLocaleLowerCase())
+  return  tasks.find(t => t.priority === priority.toLowerCase())
 }
 
 function completedTask(id){
@@ -30,7 +31,6 @@ function completedTask(id){
 function filterByCompletedDate(datestr){
 return tasks.filter(t=> t.completed && t.createdAt.toISOString().split('T')[0] === datestr)
 }
-
 
 function deleteById(idToDelete) {
     tasks = tasks.filter(item => item.id !== idToDelete);
