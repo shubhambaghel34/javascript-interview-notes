@@ -3,7 +3,6 @@ class Calculator{
     constructor(value =0){
         this.value=value
     }
-
     add=(num)=>{
         return new Calculator(this.value + num);
     }
@@ -62,3 +61,5 @@ class NewCalculator{
 }
 const newcalresult= NewCalculator.start(10).add(4).substract(3).equals()
 console.log(newcalresult);
+
+
