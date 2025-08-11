@@ -41,15 +41,15 @@ for (var i = 0; i < 3; i++) {
   // ===============================
   // 2) Hoisting with var vs let
   // ===============================
-  console.log(a);
-  var a = 10;
+  // console.log(a);
+  // var a = 10;
   
-  try {
-    console.log(b);
-  } catch (e) {
-    console.log("Error:", e.message);
-  }
-  let b = 20;
+  // try {
+  //   console.log(b);
+  // } catch (e) {
+  //   console.log("Error:", e.message);
+  // }
+  // let b = 20;
   /*
   Expected Output:
   undefined
@@ -66,12 +66,12 @@ for (var i = 0; i < 3; i++) {
   // 3) Redeclaration
   // ===============================
 //   var x = 5;
-//   var x = 10; // ✅ Allowed
+//   var x = 10; //  Allowed
 //   console.log(x);
   
 //   try {
 //     let y = 5;
-//     let y = 10; // ❌ Not allowed
+//     let y = 10; //  Not allowed
 //     console.log(y);
 //   } catch (e) {
 //     console.log("Error:", e.message);
@@ -95,7 +95,7 @@ for (var i = 0; i < 3; i++) {
   console.log(arr);
   
   try {
-    arr = [4, 5]; // ❌ Re-assignment not allowed
+    arr = [4, 5]; //  Re-assignment not allowed
     console.log(arr);
   } catch (e) {
     console.log("Error:", e.message);
@@ -144,155 +144,198 @@ for (var i = 0; i < 3; i++) {
 
 
 
-  
-  // 📚 JavaScript Output-based Questions: Closures
+
+  // 📚 JavaScript Hoisting — Tricky Output-Based Questions
 
 // ===============================
-// 1) Basic Closure
+// 1) var Hoisting
+// ===============================
+console.log(a);
+var a = 10;
+/*
+Output:
+undefined
+
+Theory:
+- var is hoisted and initialized to undefined at the top of the scope.
+*/
+
+
+// ===============================
+// 2) let Hoisting with TDZ
+// ===============================
+try {
+  console.log(b);
+} catch (e) {
+  console.log("Error:", e.message);
+}
+let b = 20;
+/*
+Output:
+Error: Cannot access 'b' before initialization
+
+Theory:
+- let is hoisted but in the Temporal Dead Zone until the declaration line.
+*/
+
+
+// ===============================
+// 3) Function Declaration Hoisting
+// ===============================
+hoistedFunc();
+function hoistedFunc() {
+  console.log("I am hoisted!");
+}
+/*
+Output:
+I am hoisted!
+
+Theory:
+- Function declarations are fully hoisted along with their body.
+*/
+
+
+// ===============================
+// 4) Function Expression with var
+// ===============================
+try {
+  funcExpr(); // TypeError
+} catch (e) {
+  console.log("Error:", e.message);
+}
+var funcExpr = function () {
+  console.log("Hello");
+};
+/*
+Output:
+Error: funcExpr is not a function
+
+Theory:
+- var funcExpr is hoisted and initialized to undefined.
+- At the time of call, it's still undefined, so calling it as a function throws TypeError.
+*/
+
+
+// ===============================
+// 5) Function Expression with let
+// ===============================
+try {
+  funcExprLet();
+} catch (e) {
+  console.log("Error:", e.message);
+}
+let funcExprLet = function () {
+  console.log("Hi");
+};
+/*
+Output:
+Error: Cannot access 'funcExprLet' before initialization
+
+Theory:
+- let declarations are in TDZ until executed, so accessing before declaration throws ReferenceError.
+*/
+
+
+// ===============================
+// 6) Multiple var Declarations
+// ===============================
+var x = 1;
+function testVar() {
+  console.log(x); // ?
+  var x = 2;
+}
+testVar();
+/*
+Output:
+undefined
+
+Theory:
+- Inside testVar, var x is hoisted to the top of function scope and initialized to undefined, shadowing outer x.
+*/
+
+
+// ===============================
+// 7) Inner Function Hoisting
 // ===============================
 function outer() {
-    let count = 0;
-    return function inner() {
-      count++;
-      return count;
-    };
+  console.log(inner()); // Works
+  function inner() {
+    return "Inner function hoisted";
   }
-  
-  const c1 = outer();
-  const c2 = outer();
-  
-  console.log(c1()); // ?
-  console.log(c1()); // ?
-  console.log(c2()); // ?
-  /*
-  Expected Output:
-  1
-  2
-  1
-  
-  Theory:
-  - A closure is a function that "remembers" variables from its outer scope even after the outer function has returned.
-  - Each call to outer() creates a separate "count" variable in memory.
-  - c1 and c2 do not share the same count.
-  */
-  
-  
-  // ===============================
-  // 2) Closure in Loops (var)
-  // ===============================
-  function varLoop() {
-    var funcs = [];
-    for (var i = 0; i < 3; i++) {
-      funcs.push(function() {
-        return i;
-      });
-    }
-    return funcs;
+}
+outer();
+/*
+Output:
+Inner function hoisted
+
+Theory:
+- Inner function declarations are hoisted to the top of their scope.
+*/
+
+
+// ===============================
+// 8) var and Function with Same Name
+// ===============================
+function test() {
+  console.log(typeof foo); // function
+  var foo = "bar";
+  function foo() {}
+  console.log(typeof foo); // string
+}
+test();
+/*
+Output:
+function
+string
+
+Theory:
+- Function declarations are hoisted before var declarations.
+- Then var foo assigns a string value later.
+*/
+
+
+// ===============================
+// 9) Hoisting in Block Scope
+// ===============================
+{
+  console.log(blockVar); // undefined
+  var blockVar = 5;
+
+  try {
+    console.log(blockLet);
+  } catch (e) {
+    console.log("Error:", e.message);
   }
-  
-  const varFuncs = varLoop();
-  console.log(varFuncs[0](), varFuncs[1](), varFuncs[2]());
-  /*
-  Expected Output:
-  3 3 3
-  
-  Theory:
-  - var is function-scoped, so all pushed functions share the same i.
-  - After the loop ends, i = 3 for all closures.
-  */
-  
-  
-  // ===============================
-  // 3) Closure in Loops (let)
-  // ===============================
-  function letLoop() {
-    var funcs = [];
-    for (let i = 0; i < 3; i++) {
-      funcs.push(function() {
-        return i;
-      });
-    }
-    return funcs;
-  }
-  
-  const letFuncs = letLoop();
-  console.log(letFuncs[0](), letFuncs[1](), letFuncs[2]());
-  /*
-  Expected Output:
-  0 1 2
-  
-  Theory:
-  - let is block-scoped; each iteration has its own copy of i.
-  - Closures capture different variables for each loop iteration.
-  */
-  
-  
-  // ===============================
-  // 4) Closure with setTimeout (var)
-  // ===============================
-  for (var i = 0; i < 3; i++) {
-    setTimeout(() => console.log("var timeout:", i), 0);
-  }
-  /*
-  Expected Output:
-  var timeout: 3
-  var timeout: 3
-  var timeout: 3
-  
-  Theory:
-  - Similar to varLoop: all callbacks share same i.
-  */
-  
-  
-  // ===============================
-  // 5) Closure with setTimeout (let)
-  // ===============================
-  for (let i = 0; i < 3; i++) {
-    setTimeout(() => console.log("let timeout:", i), 0);
-  }
-  /*
-  Expected Output:
-  let timeout: 0
-  let timeout: 1
-  let timeout: 2
-  
-  Theory:
-  - let creates a new i for each iteration.
-  */
-  
-  
-  // ===============================
-  // 6) Closure for Private Data
-  // ===============================
-  function createBankAccount(initialBalance) {
-    let balance = initialBalance;
-    return {
-      deposit(amount) {
-        balance += amount;
-        return balance;
-      },
-      withdraw(amount) {
-        balance -= amount;
-        return balance;
-      },
-      getBalance() {
-        return balance;
-      }
-    };
-  }
-  
-  const account = createBankAccount(100);
-  console.log(account.deposit(50));   // ?
-  console.log(account.withdraw(30));  // ?
-  console.log(account.getBalance());  // ?
-  /*
-  Expected Output:
-  150
-  120
-  120
-  
-  Theory:
-  - Closures can be used to emulate private variables.
-  - balance is not directly accessible outside createBankAccount().
-  */
-  
+  let blockLet = 10;
+}
+/*
+Output:
+undefined
+Error: Cannot access 'blockLet' before initialization
+
+Theory:
+- var is not block-scoped, so hoisted to function/global scope.
+- let is block-scoped and in TDZ until initialized.
+*/
+
+
+// ===============================
+// 10) Function Declaration Overriding
+// ===============================
+function duplicate() {
+  return 1;
+}
+console.log(duplicate()); // ?
+
+function duplicate() {
+  return 2;
+}
+console.log(duplicate()); // ?
+/*
+Output:
+2
+2
+
+Theory:
+- Later function declarations override earlier ones due to hoisting.
+*/
