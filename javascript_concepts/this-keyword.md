@@ -1,13 +1,13 @@
-// 📚 JavaScript — The `this` Keyword
+# 📚 JavaScript — The `this` Keyword
 
-// Definition:
-// In JavaScript, `this` refers to the object that is executing the current function.
-// Its value depends on HOW the function is called, not where it is defined.
+## Definition
+In JavaScript, `this` refers to the object that is executing the current function.  
+Its value depends on **how the function is called**, not where it is defined.
 
+---
 
-// ===============================
-// 1) Global Context
-// ===============================
+## 1) Global Context
+```javascript
 console.log(this);
 /*
 Output (browser): Window {...}
@@ -16,10 +16,12 @@ Theory:
 - In the global scope (non-strict mode, browser), `this` refers to the global object (window).
 - In Node.js modules, `this` refers to an empty object.
 */
+```
 
+---
 
-// ===============================
-// 2) Inside a Regular Function (non-strict mode)
+## 2) Inside a Regular Function (non-strict mode)
+```javascript
 function showThis() {
   console.log(this);
 }
@@ -29,10 +31,12 @@ Output (browser, non-strict): Window {...}
 Theory:
 - In non-strict mode, standalone function calls set `this` to the global object.
 */
+```
 
+---
 
-// ===============================
-// 3) Inside a Regular Function (strict mode)
+## 3) Inside a Regular Function (strict mode)
+```javascript
 "use strict";
 function strictFunc() {
   console.log(this);
@@ -44,10 +48,12 @@ undefined
 Theory:
 - In strict mode, `this` remains undefined for standalone functions.
 */
+```
 
+---
 
-// ===============================
-// 4) Inside an Object Method
+## 4) Inside an Object Method
+```javascript
 const obj = {
   name: "Shubham",
   greet() {
@@ -61,10 +67,12 @@ Hello, Shubham
 Theory:
 - When a function is called as a method of an object, `this` refers to that object.
 */
+```
 
+---
 
-// ===============================
-// 5) Losing `this` Reference
+## 5) Losing `this` Reference
+```javascript
 const obj2 = {
   name: "JS",
   greet() {
@@ -79,10 +87,12 @@ Theory:
 - Assigning method to a variable removes its binding to the object.
 - Now it’s just a regular function call → `this` is global (undefined in strict mode).
 */
+```
 
+---
 
-// ===============================
-// 6) Arrow Functions and `this`
+## 6) Arrow Functions and `this`
+```javascript
 const arrowObj = {
   name: "Arrow Example",
   greet: () => {
@@ -97,10 +107,12 @@ Theory:
 - Arrow functions do NOT have their own `this`.
 - They capture `this` from their defining scope (here: global).
 */
+```
 
+---
 
-// ===============================
-// 7) `this` in setTimeout
+## 7) `this` in setTimeout
+```javascript
 setTimeout(function () {
   console.log("setTimeout normal:", this);
 }, 0);
@@ -116,10 +128,12 @@ Theory:
 - Normal function gets its own `this` based on how it's called.
 - Arrow function inherits `this` from its surrounding context.
 */
+```
 
+---
 
-// ===============================
-// 8) `this` in Constructor Functions
+## 8) `this` in Constructor Functions
+```javascript
 function Person(name) {
   this.name = name;
 }
@@ -131,10 +145,12 @@ Shubham
 Theory:
 - In constructor calls with `new`, `this` refers to the newly created object.
 */
+```
 
+---
 
-// ===============================
-// 9) `this` in Classes
+## 9) `this` in Classes
+```javascript
 class User {
   constructor(name) {
     this.name = name;
@@ -151,10 +167,12 @@ Hi, Sinha
 Theory:
 - In class methods, `this` refers to the instance object.
 */
+```
 
+---
 
-// ===============================
-// 10) Explicit Binding with call, apply, bind
+## 10) Explicit Binding with call, apply, bind
+```javascript
 function intro(lang) {
   console.log(`${this.name} codes in ${lang}`);
 }
@@ -174,3 +192,4 @@ Theory:
 - apply: invoke immediately with arguments array
 - bind: returns a new function with bound this
 */
+```
