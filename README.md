@@ -30,7 +30,7 @@ This repository is a **complete JavaScript interview preparation kit**. It inclu
   - Spread, `Object.assign`, `structuredClone`  
   - `Object.freeze()` vs `Object.seal()`  
 
-- [JS Polyfills](./javascript_core/js-polyfills.md)  
+- [JS Polyfills](./javascript_core/js_polyfills.md)  
   - Custom implementations for `map`, `filter`, `reduce`, `call`, `apply`, `bind`  
 
 - [Inheritance](./javascript_core/inheritance.md)  
