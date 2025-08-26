@@ -1,3 +1,20 @@
+// Problem Statement:
+// Implement a Depth-First Traversal (DFS) for a tree data structure in JavaScript.
+//
+// Requirements:
+// 1. The tree is represented as a nested object with `value` and `children`.
+// 2. Traverse the tree using depth-first search and return an array of visited node values.
+// 3. Ensure recursive traversal visits children before backtracking.
+//
+// Example Tree:
+//          A
+//        /   \
+//       B     C
+//      / \   / \
+//     D   E F   G
+//
+// Expected Output (DFS Order):
+// [ "A", "B", "D", "E", "C", "F", "G" ]
 const tree = {
     value: "A",
     children: [
@@ -42,3 +59,6 @@ function depthFirstTraversal(tree) {
     
     return values;
 }
+
+console.log(depthFirstTraversal(tree));
+// Output: [ 'A', 'B', 'D', 'E', 'C', 'F', 'G' ]
