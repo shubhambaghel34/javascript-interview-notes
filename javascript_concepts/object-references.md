@@ -2,13 +2,13 @@
 
 ## 1) Assignment by Reference
 ```javascript
-const obj1 = { name: "Shubham" };
+const obj1 = { name: "Fullstack" };
 const obj2 = obj1; // obj2 references the same object
-obj2.name = "Sinha";
+obj2.name = "Developer";
 console.log(obj1.name, obj2.name);
 /*
 Output:
-Sinha Sinha
+Developer Developer
 
 Theory:
 - Both obj1 and obj2 point to the same object in memory.
