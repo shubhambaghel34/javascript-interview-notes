@@ -13,58 +13,55 @@ This repository is a **complete JavaScript interview preparation kit**. It inclu
 
 ## 📂 Contents
 
-### 🔹 Core JavaScript Concepts
 
 ### 🔹 Core JavaScript Concepts
-- [var, let, const](./javascript_core/hoisting.md)  
+- [Closures](./javascript_core/closures.md)  
+  - Basic closures, loop behavior (`var` vs `let`)  
+  - Closures with `setTimeout`  
+  - Private data with closures  
 
+- [Hoisting](./javascript_core/hoisting.md)  
+  - Variable vs function hoisting  
+  - Function expressions vs declarations  
+  - Block scope & shadowing  
 
+- [Object References & Copying](./javascript_core/object_references.md)  
+  - Shallow vs deep copy  
+  - Spread, `Object.assign`, `structuredClone`  
+  - `Object.freeze()` vs `Object.seal()`  
 
-2. **Closures**
-   - Basic closures, loop behavior (`var` vs `let`)  
-   - Closures with `setTimeout`  
-   - Private data with closures  
+- [JS Polyfills](./javascript_core/js-polyfills.md)  
+  - Custom implementations for `map`, `filter`, `reduce`, `call`, `apply`, `bind`  
 
-3. **Hoisting**
-   - Variable vs function hoisting  
-   - Function expressions vs declarations  
-   - Block scope & shadowing  
+- [Inheritance](./javascript_core/inheritance.md)  
+  - Prototypal inheritance (`Object.create`)  
+  - Constructor vs ES6 `class`/`extends`  
+  - Method overriding, `super`  
+  - Example: `Product` → `DiscountedProduct`  
 
-4. **Object References & Copying**
-   - Shallow vs deep copy  
-   - Spread, `Object.assign`, `structuredClone`  
-   - `Object.freeze()` vs `Object.seal()`  
+- [this Keyword](./javascript_core/this_keyword.md)  
+  - Global vs strict mode  
+  - Object methods, arrow functions  
+  - Constructor functions & classes  
+  - call, apply, bind  
 
-5. **Inheritance**
-   - Prototypal inheritance (`Object.create`)  
-   - Constructor vs ES6 `class`/`extends`  
-   - Method overriding, `super`  
-   - Example: `Product` → `DiscountedProduct`  
+- [Spread & Rest Operators](./javascript_core/spread_rest.md)  
+  - Spread in arrays/objects  
+  - Rest in functions & destructuring  
+  - Mixing spread & rest  
 
-6. **`this` Keyword**
-   - Global vs strict mode  
-   - Object methods, arrow functions  
-   - Constructor functions & classes  
-   - call, apply, bind  
+- [Promises & Async](./javascript_core/promises.md)  
+  - `Promise.all`, `allSettled`, `any`, `race`  
+  - Async/await examples  
+  - Custom promise utilities  
 
-7. **Spread & Rest Operators**
-   - Spread in arrays/objects  
-   - Rest in functions & destructuring  
-   - Mixing spread & rest  
+- [Memoization](./javascript_core/memoization.md)  
+  - Memoize expensive functions  
+  - Example with addition + Fibonacci optimization  
 
-8. **Promises & Async**
-   - `Promise.all`, `allSettled`, `any`, `race`  
-   - Async/await examples  
-   - Custom promise utilities  
-
-9. **Memoization**
-   - Memoize expensive functions  
-   - Example with addition + Fibonacci optimization  
-
-10. **Event Loop & Concurrency**
-   - Microtasks vs macrotasks (`Promise`, `setTimeout`)  
-   - Output-based tricky questions  
-
+- [Event Loop & Concurrency](./javascript_core/event_loop.md)  
+  - Microtasks vs macrotasks (`Promise`, `setTimeout`)  
+  - Output-based tricky questions  
 ---
 
 ### 🔹 Data Structures in JavaScript
@@ -125,14 +122,14 @@ This repository is a **complete JavaScript interview preparation kit**. It inclu
 ---
 
 ## 🚀 How to Use
-1. Open the `.js` file for each concept.  
-2. Run in Node.js or browser console.  
+1. Open the `.md` file for each concept.  
+2. Run code snippets in Node.js or browser console.  
 3. Observe outputs + read theory in comments.  
 4. For LeetCode problems:  
    - Try solving first  
    - Compare with provided solution  
 5. Use **coding patterns** as templates in interviews.  
-6. Review **design patterns & SOLID** for system design questions.  
+6. Review **design patterns & SOLID** for system design questions.
 
 ---
 
