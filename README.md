@@ -14,9 +14,11 @@ This repository is a **complete JavaScript interview preparation kit**. It inclu
 ## 📂 Contents
 
 ### 🔹 Core JavaScript Concepts
-1. **`var`, `let`, `const`**
-   - Scope, hoisting, re-declaration, re-assignment  
-   - Tricky scenarios with loops, TDZ, and global binding  
+
+### 🔹 Core JavaScript Concepts
+- [var, let, const](./javascript_core/hoisting.md)  
+
+
 
 2. **Closures**
    - Basic closures, loop behavior (`var` vs `let`)  
